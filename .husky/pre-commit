@@ -1,9 +1,3 @@
-#!/bin/sh
-
-echo "Running validation..."
-
-pnpm lint || exit 1
-pnpm typecheck || exit 1
-pnpm test || exit 1
-
-echo "All checks passed."
+pnpm exec lint-staged
+pnpm typecheck
+pnpm test
