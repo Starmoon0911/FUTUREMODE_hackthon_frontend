@@ -1,0 +1,71 @@
+name: Feature
+description: Add a new feature to the project
+title: "[Feature]: "
+labels: ["type:feature"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Feature Request
+
+        Describe what you want to build and why.
+
+  - type: textarea
+    id: goal
+    attributes:
+      label: Goal
+      description: What problem does this feature solve?
+      placeholder: |
+        Example:
+        Users need a way to get AI hints while solving problems.
+    validations:
+      required: true
+
+  - type: textarea
+    id: requirements
+    attributes:
+      label: Requirements
+      description: What should this feature do?
+      placeholder: |
+        - User can...
+        - System should...
+        - API should...
+    validations:
+      required: true
+
+  - type: textarea
+    id: technical-notes
+    attributes:
+      label: Technical Notes
+      description: Architecture constraints, libraries, APIs, or implementation hints.
+      placeholder: |
+        - Use existing API client
+        - Reuse existing components
+        - Do not introduce another state management library
+    validations:
+      required: false
+
+  - type: textarea
+    id: acceptance-criteria
+    attributes:
+      label: Acceptance Criteria
+      description: How do we know this task is complete?
+      placeholder: |
+        - [ ] Feature works
+        - [ ] Loading state works
+        - [ ] Error state works
+        - [ ] pnpm lint passes
+        - [ ] pnpm typecheck passes
+    validations:
+      required: true
+
+  - type: textarea
+    id: out-of-scope
+    attributes:
+      label: Out of Scope
+      description: Explicitly describe what the agent should NOT implement.
+      placeholder: |
+        - Authentication
+        - Mobile optimization
+    validations:
+      required: false

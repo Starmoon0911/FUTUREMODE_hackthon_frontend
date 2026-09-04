@@ -1,0 +1,62 @@
+name: Task
+description: Implement a specific engineering task
+title: "[Task]: "
+labels: ["type:task"]
+body:
+  - type: textarea
+    id: goal
+    attributes:
+      label: Goal
+      description: What needs to be accomplished?
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Context
+      description: Relevant information about the current implementation.
+    validations:
+      required: false
+
+  - type: textarea
+    id: requirements
+    attributes:
+      label: Requirements
+      description: Concrete implementation requirements.
+      placeholder: |
+        - ...
+        - ...
+        - ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: technical-notes
+    attributes:
+      label: Technical Notes
+      description: Constraints or implementation guidance.
+    validations:
+      required: false
+
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance Criteria
+      description: Every item should be objectively verifiable.
+      placeholder: |
+        - [ ] ...
+        - [ ] ...
+        - [ ] pnpm lint passes
+        - [ ] pnpm typecheck passes
+    validations:
+      required: true
+
+  - type: textarea
+    id: out-of-scope
+    attributes:
+      label: Out of Scope
+      description: Things the coding agent must not implement.
+    validations:
+      required: false
+      

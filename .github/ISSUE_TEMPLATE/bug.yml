@@ -1,0 +1,66 @@
+name: Bug
+description: Report a bug or unexpected behavior
+title: "[Bug]: "
+labels: ["type:bug"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What is currently going wrong?
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected Behavior
+      description: What should happen instead?
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to Reproduce
+      description: Provide the smallest possible reproduction.
+      placeholder: |
+        1. Open...
+        2. Click...
+        3. Enter...
+        4. Observe...
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs / Errors
+      description: Paste relevant errors or logs.
+      render: shell
+    validations:
+      required: false
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      placeholder: |
+        - OS:
+        - Browser:
+        - Node:
+        - Package manager:
+    validations:
+      required: false
+
+  - type: textarea
+    id: acceptance-criteria
+    attributes:
+      label: Acceptance Criteria
+      placeholder: |
+        - [ ] Bug no longer reproduces
+        - [ ] Regression test added
+        - [ ] pnpm lint passes
+        - [ ] pnpm typecheck passes
+    validations:
+      required: true
