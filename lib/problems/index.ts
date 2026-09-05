@@ -9,7 +9,6 @@ export type {
   ProblemExample,
   SupportedLanguage,
 } from "./types";
-export { SUPPORTED_LANGUAGES } from "./types";
 
 export const problems: Problem[] = [twoSum, binarySearch, validParentheses];
 

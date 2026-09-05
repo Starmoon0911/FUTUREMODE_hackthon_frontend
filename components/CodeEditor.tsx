@@ -59,12 +59,6 @@ function starterFor(
   return starters?.[lang] ?? FALLBACK_STARTER;
 }
 
-function detectDarkMode(): boolean {
-  return (
-    typeof window !== "undefined" &&
-    !!window.matchMedia?.("(prefers-color-scheme: dark)").matches
-  );
-}
 
 export function CodeEditor({
   value,
@@ -87,27 +81,25 @@ export function CodeEditor({
   const activeLang = showPicker ? internalLang : language;
 
   const [internal, setInternal] = useState<string>(
-    () => starterFor(language, starters) || value || FALLBACK_STARTER
+    () => (starters?.[language] ?? value ?? FALLBACK_STARTER)
   );
 
   // When the parent swaps problems (or sends a new language prop), reset the
   // internal buffer to the new starter. Controlled consumers get the value
-  // from above; we just sync the language.
+  // from above; we just sync the language. We reset internalLang to the NEW
+  // problem's default `language` prop (not `activeLang`, which would read
+  // internalLang) so navigating between problems whose `allowedLanguages`
+  // differ does not leave the select pointing at a value not in its options.
   const lastResetKey = useRef<string | undefined>(resetKey);
   useEffect(() => {
     if (resetKey !== lastResetKey.current) {
       lastResetKey.current = resetKey;
+      setInternalLang(language);
       if (!isControlled) {
-        setInternal(starterFor(activeLang, starters));
+        setInternal(starterFor(language, starters));
       }
-      setInternalLang(activeLang);
     }
-  }, [resetKey, activeLang, starters, isControlled]);
-
-  // When `language` prop changes from outside, mirror it.
-  useEffect(() => {
-    if (!showPicker) setInternalLang(language);
-  }, [language, showPicker]);
+  }, [resetKey, language, starters, isControlled]);
 
   const display = isControlled ? value : internal;
 
@@ -115,7 +107,12 @@ export function CodeEditor({
   // loading text stays legible in either mode.
   const [systemDark, setSystemDark] = useState(false);
   useEffect(() => {
-    setSystemDark(detectDarkMode());
+    const mql = window.matchMedia?.("(prefers-color-scheme: dark)");
+    if (!mql) return;
+    const update = () => setSystemDark(mql.matches);
+    update();
+    mql.addEventListener("change", update);
+    return () => mql.removeEventListener("change", update);
   }, []);
   const resolvedTheme = theme ?? (systemDark ? "vs-dark" : "vs");
 
