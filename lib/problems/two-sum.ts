@@ -15,4 +15,46 @@ export const twoSum: Problem = {
     "陣列中找某個值是否出現過，你會用什麼資料結構？",
     "HashMap 可以讓你在 O(1) 時間內查到某個值是否出現過。",
   ],
+  defaultLanguage: "typescript",
+  allowedLanguages: ["typescript", "javascript", "python", "cpp", "go", "java"],
+  starters: {
+    typescript: `function twoSum(nums: number[], target: number): number[] {
+  // 在這裡寫你的解題程式碼
+  return [];
+}
+`,
+    javascript: `function twoSum(nums, target) {
+  // 在這裡寫你的解題程式碼
+  return [];
+}
+`,
+    python: `def two_sum(nums, target):
+    # 在這裡寫你的解題程式碼
+    return []
+`,
+    cpp: `#include <vector>
+using namespace std;
+
+vector<int> twoSum(vector<int>& nums, int target) {
+    // 在這裡寫你的解題程式碼
+    return {};
+}
+`,
+    go: `package main
+
+func twoSum(nums []int, target int) []int {
+    // 在這裡寫你的解題程式碼
+    return nil
+}
+`,
+    java: `import java.util.*;
+
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
+        // 在這裡寫你的解題程式碼
+        return new int[]{};
+    }
+}
+`,
+  },
 };

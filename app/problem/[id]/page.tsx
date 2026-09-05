@@ -24,7 +24,12 @@ export default async function ProblemPage({ params }: { params: Promise<{ id: st
         <section className="problem-grid__panel" aria-label="程式碼編輯器">
           <div className="problem-grid__panel-header">編輯器</div>
           <div className="problem-grid__panel-body" style={{ padding: 0 }}>
-            <CodeEditor language="typescript" />
+            <CodeEditor
+              language={problem.defaultLanguage}
+              allowedLanguages={problem.allowedLanguages}
+              starters={problem.starters}
+              resetKey={problem.id}
+            />
           </div>
         </section>
         <section className="problem-grid__panel" aria-label="AI 語音導師" id="tutor-slot">

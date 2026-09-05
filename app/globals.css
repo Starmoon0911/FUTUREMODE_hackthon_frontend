@@ -353,10 +353,67 @@ p { margin: 0 0 var(--space-3) 0; }
   color: var(--color-text);
 }
 
+.editor-toolbar__picker {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.editor-toolbar__picker-label {
+  font-size: var(--text-xs);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-text-muted);
+}
+
+.editor-toolbar__select {
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--color-text);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-md);
+  padding: 4px var(--space-2);
+  cursor: pointer;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.editor-toolbar__select:hover {
+  border-color: var(--color-accent);
+}
+
+.editor-toolbar__select:focus-visible {
+  outline: none;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.18);
+}
+
+.editor-toolbar__count {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-text-subtle);
+}
+
+.editor-loading {
+  padding: var(--space-5);
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+}
+
 .editor-body {
   flex: 1;
   min-height: 0;
   position: relative;
+  background: var(--color-surface);
+}
+
+/* Monaco dark theme: blend its chrome with our surface tokens. */
+@media (prefers-color-scheme: dark) {
+  .editor-body {
+    background: var(--color-surface);
+  }
 }
 
 /* Tutor slot placeholder. */

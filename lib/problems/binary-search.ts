@@ -15,4 +15,44 @@ export const binarySearch: Problem = {
     "維護左右邊界，每次看中間的元素是大還是小。",
     "小心邊界條件：while (left <= right) 還是 while (left < right)？",
   ],
+  defaultLanguage: "typescript",
+  allowedLanguages: ["typescript", "javascript", "python", "cpp", "go", "java"],
+  starters: {
+    typescript: `function search(nums: number[], target: number): number {
+  // 在這裡寫你的解題程式碼
+  return -1;
+}
+`,
+    javascript: `function search(nums, target) {
+  // 在這裡寫你的解題程式碼
+  return -1;
+}
+`,
+    python: `def search(nums, target):
+    # 在這裡寫你的解題程式碼
+    return -1
+`,
+    cpp: `#include <vector>
+using namespace std;
+
+int search(vector<int>& nums, int target) {
+    // 在這裡寫你的解題程式碼
+    return -1;
+}
+`,
+    go: `package main
+
+func search(nums []int, target int) int {
+    // 在這裡寫你的解題程式碼
+    return -1
+}
+`,
+    java: `class Solution {
+    public int search(int[] nums, int target) {
+        // 在這裡寫你的解題程式碼
+        return -1;
+    }
+}
+`,
+  },
 };
