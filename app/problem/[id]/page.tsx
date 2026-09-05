@@ -23,7 +23,7 @@ export default async function ProblemPage({ params }: { params: Promise<{ id: st
         </section>
         <section className="problem-grid__panel" aria-label="程式碼編輯器">
           <div className="problem-grid__panel-header">編輯器</div>
-          <div className="problem-grid__panel-body" style={{ padding: 0 }}>
+          <div className="problem-grid__panel-body problem-grid__panel-body--flush">
             <CodeEditor
               language={problem.defaultLanguage}
               allowedLanguages={problem.allowedLanguages}
