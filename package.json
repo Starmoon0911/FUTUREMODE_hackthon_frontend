@@ -7,9 +7,9 @@
     "node": ">=22.0.0"
   },
   "scripts": {
-    "dev": "tsx watch server.ts",
-    "build": "next build && tsc -p tsconfig.server.json",
-    "start": "NODE_ENV=production node dist/server.js",
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
     "lint": "next lint",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
