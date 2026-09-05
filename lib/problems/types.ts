@@ -9,16 +9,6 @@ export type SupportedLanguage =
   | "rust"
   | "java";
 
-export const SUPPORTED_LANGUAGES: SupportedLanguage[] = [
-  "typescript",
-  "javascript",
-  "python",
-  "cpp",
-  "go",
-  "rust",
-  "java",
-];
-
 export interface ProblemExample {
   input: string;
   output: string;
